@@ -16,9 +16,6 @@ namespace SAP.Application.State.States
             return Observable.Create<ITransition>(
                 async observer =>
                 {
-                    //await _dataStoreContext.InitializeAsync();
-
-                    //observer.OnNext(new ToCheckingUpdates());
                 }
             );
         }

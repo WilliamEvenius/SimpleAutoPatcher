@@ -19,7 +19,6 @@ namespace SAP.Application.State.States
             return Observable.Create<ITransition>(
                 async observer =>
                 {
-                    //await _dataStoreContext.InitializeAsync();
                     await patcherService.CheckForUpdates();
                     observer.OnNext(new ToDownloading());
                 }

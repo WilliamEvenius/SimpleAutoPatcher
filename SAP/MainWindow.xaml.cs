@@ -36,7 +36,7 @@ namespace SAP
                 this.OneWayBind(ViewModel,
                     vm => vm.CurrentState,
                     v => v.ProgressBar.IsIndeterminate,
-                    state => state is { Name: "CheckingUpdates" })
+                    state => state is { Name: "CheckingUpdates" }) // todo, fix this
                 .DisposeWith(disposables);
 
                 this.BindCommand(ViewModel,

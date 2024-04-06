@@ -16,7 +16,6 @@ namespace SAP.Application.State.States
             return Observable.Create<ITransition>(
                 async observer =>
                 {
-                    //await _dataStoreContext.InitializeAsync();
                     await Task.Delay(2000);
 
                     observer.OnNext(new ToCheckingUpdates());
