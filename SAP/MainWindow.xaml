@@ -1,0 +1,57 @@
+﻿<rxui:ReactiveWindow x:Class="SAP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rxui="http://reactiveui.net"
+        xmlns:vm="clr-namespace:SAP" d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
+        x:TypeArguments="vm:MainWindowViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="675" Width="1200" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" Grid.Column="0" Background="#222222" NavigationUIVisibility="Hidden" Margin="10">
+            <Frame.Content>
+                <TextBlock Text="Patch notes" 
+                           Foreground="LightGray"
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" />
+            </Frame.Content>
+        </Frame>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Bottom" Margin="20" >
+            <Label HorizontalContentAlignment="Center" Padding="0,10,0,0" >Progress</Label>
+            <TextBlock HorizontalAlignment="Center" Padding="0,0,0,5" Text="{Binding PatchProgress, StringFormat={}{0:F0}%}" />
+            <ProgressBar x:Name="ProgressBar" Value="0" Height="10" Margin="15,5" />
+            <ProgressBar x:Name="TotalProgressBar" Value="50" Height="10" Margin="15,0" />
+        </StackPanel>
+
+        <Border Grid.Column="1" Grid.Row="0" 
+                CornerRadius="5" 
+                ClipToBounds="True" 
+                Padding="10" 
+                VerticalAlignment="Bottom" 
+                BorderBrush="#eeeeee" 
+                BorderThickness="1">
+            <StackPanel>
+                <Label x:Name="CurrentStateLabel" FontSize="24" />
+
+                <Label FontSize="16" Content="Login" />
+                <Label Content="Username:" Padding="0,10,0,0" />
+                <TextBox />
+                <Label Content="Password:" Padding="0,10,0,0" />
+                <PasswordBox />
+            </StackPanel>
+        </Border>
+
+        <Button x:Name="StartGameButton" Content="Start" Grid.Row="1" Grid.Column="1" Margin="20" FontSize="20" FontWeight="Bold" />
+    </Grid>
+</rxui:ReactiveWindow>
